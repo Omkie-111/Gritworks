@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Uploader</title>
+</head>
+<body>
+    <h2>Upload Document</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="document" required>
+        <button type="submit">Upload</button>
+    </form>
+    {% if document_url %}
+        <p>Document URL: <a href="{{ document_url }}" target="_blank">{{ document_url }}</a></p>
+    {% endif %}
+</body>
+</html>
